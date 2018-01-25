@@ -1,7 +1,8 @@
-#####使用方式：
+
+##### 使用方式：
 执行gradle的jar命令，将build目录下编译出来的uiautomatorviewer.jar替换你本地的${ANDROID_HOME}/tools/lib下的uiautomatorviewer.jar即可
 
-#####背景：
+##### 背景：
 在做UI自动化时必不可少需要使用到uiautomatorviewer这个工具，但是有时候我们进行元素定位的时候希望使用xpath定位，而这个 工具自身并没提供，为了方便自动生成xpath。在网上找到的方法感觉不是很完整，于是打算自己亲自对该工具进行二次开发。
 - 开发环境：
     - ide:intellij idea
@@ -9,7 +10,7 @@
     - 语言环境：java
     - 还要必不可少的android sdk
     
-#####下载源码
+##### 下载源码
 - 下载[uiautomatorviewer源代码](https://android.googlesource.com/platform/frameworks/testing/+/aecdc4a/uiautomator/utils/uiautomatorviewer/)
 下载完成后查看Android.mk，这里面有我们依赖的jar
 ```
@@ -21,7 +22,7 @@ LOCAL_JAVA_LIBRARIES := \
 ```
 这些jar可以到你本地的${ANDROID_HOME}/tools/lib中找到
 
-#####构建：
+##### 构建：
 - 添加gradle构建文件：
     - 1.在源码跟目录添加settings.gradle,build.gradle
 settings.gradle:
@@ -61,7 +62,7 @@ dependencies {
 - 2.根目录添加libs文件夹，把刚才找到的几个jar文件拷贝进来
 - 3.使用ide导入gradle工程，编译完成后运行com.android.uiautomatorviewer.UiAutomatorViewer即可
 
-#####问题：
+##### 问题：
 如果在dump资源的时候出现崩溃弹窗，如：
 
 ```
