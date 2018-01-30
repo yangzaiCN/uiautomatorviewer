@@ -86,6 +86,8 @@ public class UiHierarchyXmlLoader {
                     }
                     if (mParentNode != null) {
                         mParentNode.addChild(mWorkingNode);
+                        String xpath = ((UiNode) mWorkingNode).getXpath();
+                        ((UiNode)mWorkingNode).addAtrribute("xpath",xpath);
                     }
                 }
             }

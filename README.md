@@ -65,11 +65,8 @@ dependencies {
 ##### 问题：
 如果在dump资源的时候出现崩溃弹窗，如：
 
-```
-Non-zero return code from "rm" xml dump command
-或者
-Non-zero return code from "rm" screenshot command
-```
+![1517297490(1).png](http://upload-images.jianshu.io/upload_images/1909684-14659be87b1a7d51.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
 这些异常时使用adb命令时抛出的，具体原因后续研究，解决的方式也很简单，你可以先执行下dump或screencap命令。对应的类是
 com.android.uiautomator.actions.ScreenshotAction
 
@@ -78,3 +75,4 @@ adb shell /system/bin/uiautomator dump /sdcard/uidump.xml
 或
 adb shell screencap -p /sdcard/screenshot.png
 ```    
+![1517297801(1).png](http://upload-images.jianshu.io/upload_images/1909684-0cc3d75623af585d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)

@@ -18,6 +18,7 @@ package com.android.uiautomator.tree;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
 
 public class BasicTreeNode {
@@ -33,7 +34,12 @@ public class BasicTreeNode {
     // whether the boundary fields are applicable for the node or not
     // RootWindowNode has no bounds, but UiNodes should
     protected boolean mHasBounds = false;
-
+    public int classNameIndex = 1;
+    //当前已经添加了多少个孩子节点
+    public int childOffset = 0;
+    //自己是第几个孩子
+    public int index;
+    public HashMap<String,Integer> classNameMap = new HashMap<String, Integer>();
     public void addChild(BasicTreeNode child) {
         if (child == null) {
             throw new NullPointerException("Cannot add null child");
@@ -43,6 +49,17 @@ public class BasicTreeNode {
         }
         mChildren.add(child);
         child.mParent = this;
+        childOffset++;
+        child.index = childOffset;
+        if(!RootWindowNode.class.isInstance(child)){
+            String className = ((UiNode)child).getNodeClassAttribute();
+            if(classNameMap.get(className)==null){
+                classNameMap.put(className, 1);
+            }else{
+                classNameMap.put(className, classNameMap.get(className)+1);
+            }
+            child.classNameIndex = classNameMap.get(className);
+        }
     }
 
     public List<BasicTreeNode> getChildrenList() {

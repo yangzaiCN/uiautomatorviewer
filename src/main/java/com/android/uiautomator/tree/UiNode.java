@@ -120,4 +120,29 @@ public class UiNode extends BasicTreeNode {
         }
         return mCachedAttributesArray;
     }
+
+    public String getNodeClassAttribute() {
+        return this.mAttributes.get("class");
+    }
+
+    public String getXpath() {
+        String xpath = null;
+        BasicTreeNode parent = getParent();
+        if (parent instanceof RootWindowNode)
+            xpath = getIndexXpath();
+        else{
+            String parentXpath = ((UiNode) parent).getAttribute("xpath");
+            if (parentXpath.startsWith("//"))
+                xpath = parentXpath + getIndexXpath();
+            else
+                xpath = "/" + parentXpath + getIndexXpath();
+        }
+        return xpath;
+    }
+
+    private String getIndexXpath() {
+        String className = getNodeClassAttribute();
+        String xpath = "/" + className + "[" + classNameIndex + "]";
+        return xpath;
+    }
 }
