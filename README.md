@@ -1,6 +1,7 @@
 
 ##### 使用方式：
-执行gradle的jar命令，将build目录下编译出来的uiautomatorviewer.jar替换你本地的${ANDROID_HOME}/tools/lib下的uiautomatorviewer.jar即可
+执行gradle jar命令(或gradlew jar)，将build目录下编译出来的uiautomatorviewer.jar替换你本地的${ANDROID_HOME}/tools/lib下的uiautomatorviewer.jar即可
+或者使用跟目录下已编译好的jar
 
 ##### 背景：
 在做UI自动化时必不可少需要使用到uiautomatorviewer这个工具，但是有时候我们进行元素定位的时候希望使用xpath定位，而这个 工具自身并没提供，为了方便自动生成xpath。在网上找到的方法感觉不是很完整，于是打算自己亲自对该工具进行二次开发。
@@ -59,6 +60,10 @@ dependencies {
     compile fileTree(dir: 'libs', include: '*.jar')
 }
 ```
+主意：Class-Path中的jar要与你本地sdk中${ANDROID_HOME}/tools/lib目录下的jar版本对应。
+![1517371277(1).png](http://upload-images.jianshu.io/upload_images/1909684-29d217dd4ec29a00.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+
 - 2.根目录添加libs文件夹，把刚才找到的几个jar文件拷贝进来
 - 3.使用ide导入gradle工程，编译完成后运行com.android.uiautomatorviewer.UiAutomatorViewer即可
 
