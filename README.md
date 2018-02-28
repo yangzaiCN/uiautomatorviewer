@@ -1,6 +1,7 @@
 
 ##### 使用方式：
 方式1.直接下载并使用根目录下的uiautomatorviewer.jar
+
 方式2.执行gradle jar命令(或gradlew jar)，将build目录下编译出来的uiautomatorviewer.jar替换你本地的${ANDROID_HOME}/tools/lib下的uiautomatorviewer.jar即可
 
 ##### 背景：
